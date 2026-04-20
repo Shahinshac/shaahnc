@@ -1,46 +1,62 @@
 import React from 'react';
-import { Mail, MapPin, Heart } from 'lucide-react';
+import { Mail, Phone, MapPin, Radio, Wifi } from 'lucide-react';
 import './Footer.css';
 
 const Footer = () => {
   return (
-    <footer id="contact" className="footer">
-      <div className="container">
-        <div className="footer-content glass-panel">
-          <div className="footer-info">
-            <h2>Let's Build Something <span className="gradient-text">Amazing</span></h2>
-            <p>I'm always open to discussing new projects, creative ideas, or opportunities to be part of your visions.</p>
-            
-            <div className="contact-details">
-              <a href="mailto:shahinsha.c123@gmail.com" className="contact-item">
-                <Mail className="contact-icon" />
-                <span>shahinsha.c123@gmail.com</span>
-              </a>
-              <div className="contact-item">
-                <span className="contact-icon" style={{fontWeight: 'bold'}}>📞</span>
-                <span>+91 7594012761</span>
+    <footer className="cyber-footer">
+      <div className="container footer-layout">
+        <div className="footer-signal grid-col">
+          <h2 className="glitch gradient-text" data-text="SIG_INITIALIZE" style={{ marginBottom: '1rem' }}>
+            SIG_INITIALIZE
+          </h2>
+          <p className="mono" style={{ opacity: 0.6, marginBottom: '2rem' }}>
+            PENDING_COMMUNICATION_LINK_FOR_COLLABORATION
+          </p>
+          
+          <div className="signal-status">
+            <Radio size={16} className="pulse-anim" />
+            <span className="mono">LISTENING_FOR_SIGNALS...</span>
+          </div>
+        </div>
+
+        <div className="footer-contact grid-col">
+          <div className="contact-frame">
+            <div className="contact-item">
+              <Mail className="contact-icon" size={18} />
+              <div className="contact-data">
+                <span className="mono label">MAIL:</span>
+                <a href="mailto:shahinsha.c123@gmail.com" className="value">SHAHINSHA.C123@GMAIL.COM</a>
               </div>
-              <div className="contact-item">
-                <MapPin className="contact-icon" />
-                <span>MEA Engineering College, Perinthalmanna</span>
+            </div>
+            
+            <div className="contact-item">
+              <Phone className="contact-icon" size={18} />
+              <div className="contact-data">
+                <span className="mono label">CELL:</span>
+                <span className="value">+91 7594012761</span>
+              </div>
+            </div>
+
+            <div className="contact-item">
+              <MapPin className="contact-icon" size={18} />
+              <div className="contact-data">
+                <span className="mono label">LOC:</span>
+                <span className="value">PERINTHALMANNA, IN</span>
               </div>
             </div>
           </div>
-          
-          <div className="footer-form">
-            <form onSubmit={(e) => e.preventDefault()}>
-              <input type="text" placeholder="Your Name" className="form-input" required />
-              <input type="email" placeholder="Your Email" className="form-input" required />
-              <textarea placeholder="Your Message" rows="4" className="form-input" required></textarea>
-              <button type="submit" className="btn btn-primary" style={{ width: '100%' }}>Send Message</button>
-            </form>
-          </div>
         </div>
-        
-        <div className="footer-bottom">
-          <p>
-            Designed & Built with <Heart size={14} className="heart-icon" /> by Shahin Sha Chakkingathodi © {new Date().getFullYear()}
-          </p>
+      </div>
+
+      <div className="footer-system-bar">
+        <div className="container bar-content">
+          <div className="mono bar-left">© 2026 SHAHINSHA_SYS_V2.0.4</div>
+          <div className="bar-right">
+            <div className="mono encryption-tag">
+              <Wifi size={12} /> SECURE_PROTOCOL_TLS_1.3
+            </div>
+          </div>
         </div>
       </div>
     </footer>

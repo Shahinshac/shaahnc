@@ -1,67 +1,108 @@
-.header {
+.cyber-header {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   z-index: 1000;
-  transition: all 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
   padding: 1.5rem 0;
+  border-bottom: 1px solid transparent;
 }
 
-.header.scrolled {
-  padding: 1rem 0;
-  background: rgba(3, 3, 4, 0.8);
-  backdrop-filter: blur(12px);
-  border-bottom: 1px solid var(--bento-border);
+.cyber-header.scrolled {
+  padding: 0.8rem 0;
+  background: rgba(8, 8, 10, 0.9);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border-color);
 }
 
-.header-content {
+.header-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  max-width: 1300px;
-  margin: 0 auto;
-  padding: 0 2rem;
 }
 
-.logo {
+.system-branding {
   display: flex;
   align-items: center;
   gap: 0.6rem;
-  font-size: 1.5rem;
+}
+
+.sys-icon {
+  color: var(--accent-primary);
+}
+
+.sys-name {
+  font-family: var(--font-mono);
   font-weight: 700;
-  color: white;
+  font-size: 1.1rem;
+  letter-spacing: 0.1em;
 }
 
-.logo-icon {
-  color: var(--accent-1);
+.os-nav .nav-links {
+  display: flex;
+  list-style: none;
+  gap: 2.5rem;
 }
 
-.desktop-nav {
+.nav-item {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  transition: color 0.3s ease;
+  position: relative;
+}
+
+.nav-item:hover {
+  color: var(--accent-secondary);
+}
+
+.nav-item::after {
+  content: "";
+  position: absolute;
+  bottom: -4px; left: 0;
+  width: 0; height: 1px;
+  background: var(--accent-secondary);
+  transition: width 0.3s ease;
+}
+
+.nav-item:hover::after {
+  width: 100%;
+}
+
+.system-status {
   display: flex;
   align-items: center;
   gap: 2rem;
 }
 
-.nav-list {
+.status-indicator {
   display: flex;
-  list-style: none;
-  gap: 2rem;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--accent-primary);
+  opacity: 0.8;
 }
 
-.nav-link {
-  font-size: 0.95rem;
-  font-weight: 500;
+.pulse-anim {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); opacity: 0.5; }
+  50% { transform: scale(1.2); opacity: 1; }
+  100% { transform: scale(1); opacity: 0.5; }
+}
+
+.system-time {
   color: var(--text-muted);
-  transition: color 0.3s ease;
-}
-
-.nav-link:hover {
-  color: white;
+  font-size: 0.75rem;
 }
 
 @media (max-width: 768px) {
-  .desktop-nav {
+  .os-nav {
     display: none;
   }
 }

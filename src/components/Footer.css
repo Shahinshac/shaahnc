@@ -1,59 +1,96 @@
-.footer {
-  padding: 4rem 0 2rem;
+.cyber-footer {
+  padding-top: 6rem;
+  background: var(--bg-darker);
   position: relative;
-  border-top: 1px solid var(--bento-border);
-  background: rgba(3, 3, 4, 0.5);
+  border-top: 1px solid var(--border-color);
 }
 
-.footer-content {
+.footer-layout {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 4rem;
-  max-width: 1300px;
-  margin: 0 auto;
-  padding: 0 2rem;
+  gap: 6rem;
+  margin-bottom: 6rem;
 }
 
-.footer-info h2 {
-  font-size: 2.5rem;
+.footer-signal h2 {
+  font-size: 2.2rem;
   margin-bottom: 1.5rem;
-  text-align: left;
 }
 
-.footer-info p {
-  color: var(--text-muted);
-  max-width: 400px;
-  margin-bottom: 2rem;
+.signal-status {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  color: var(--accent-primary);
+  opacity: 0.8;
 }
 
-.contact-details {
+.contact-frame {
   display: flex;
   flex-direction: column;
-  gap: 1.2rem;
+  gap: 2rem;
 }
 
 .contact-item {
   display: flex;
-  align-items: center;
-  gap: 1rem;
-  color: var(--text-main);
+  align-items: flex-start;
+  gap: 1.5rem;
 }
 
 .contact-icon {
-  color: var(--accent-2);
+  color: var(--accent-secondary);
+  margin-top: 0.2rem;
 }
 
-.footer-bottom {
-  text-align: center;
-  color: var(--text-muted);
-  font-size: 0.85rem;
-  margin-top: 4rem;
-  padding-top: 2rem;
-  border-top: 1px solid var(--bento-border);
+.contact-data {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
 }
 
-@media (max-width: 992px) {
-  .footer-content {
+.label {
+  font-size: 0.65rem;
+  opacity: 0.4;
+}
+
+.value {
+  font-size: 1rem;
+  font-weight: 500;
+  color: white;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a.value:hover {
+  color: var(--accent-secondary);
+}
+
+.footer-system-bar {
+  padding: 1.5rem 0;
+  background: black;
+  border-top: 1px solid var(--border-color);
+}
+
+.bar-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.bar-left, .bar-right {
+  font-size: 0.7rem;
+  opacity: 0.5;
+}
+
+.encryption-tag {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+@media (max-width: 900px) {
+  .footer-layout {
     grid-template-columns: 1fr;
+    gap: 4rem;
   }
 }
