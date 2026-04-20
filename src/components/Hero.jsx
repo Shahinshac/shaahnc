@@ -10,55 +10,38 @@ const LinkedinIcon = ({ size = 20 }) => (
   <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
 );
 
-const Hero = () => {
+const HeroTile = () => {
   return (
-    <section id="home" className="hero-section">
-      {/* Decorative background elements */}
-      <div className="hero-glow shape-1"></div>
-      <div className="hero-glow shape-2"></div>
-      
-      <div className="container hero-container animate-fade-in">
-        <div className="hero-content">
-          <div className="hero-profile">
-            <img src="/profile.jpg" alt="Shahin Sha" className="profile-img" onError={(e) => { e.target.style.display = 'none' }} />
-          </div>
-          
-          <div className="badge glass-panel">
-            <span className="badge-dot"></span> Available for Web Development Roles
-          </div>
-          
-          <h1 className="hero-title">
-            Hi, I'm <br />
-            <span className="gradient-text">Shahin Sha</span>
-            <span className="surname"> Chakkingathodi</span>
-          </h1>
-          
-          <p className="hero-subtitle">
-            2nd Year CSE Student @ MEA Engineering College <br/> 
-            Passionate Full-Stack Developer creating stunning & high-performance digital experiences.
-          </p>
-          
-          <div className="hero-cta">
-            <a href="#projects" className="btn btn-primary">
-              View My Work <ArrowRight size={20} />
-            </a>
-            <a href="mailto:shahinsha.c123@gmail.com" className="btn btn-outline">
-              Get In Touch <Mail size={20} />
-            </a>
-          </div>
-          
-          <div className="hero-socials">
-            <a href="https://github.com/Shahinshac" target="_blank" rel="noreferrer" className="social-icon glass-panel" aria-label="GitHub">
-              <GithubIcon size={20} />
-            </a>
-            <a href="https://www.linkedin.com/in/shahin-sha-chakkingathodi-95946b2b5?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" rel="noreferrer" className="social-icon glass-panel" aria-label="LinkedIn">
-              <LinkedinIcon size={20} />
-            </a>
-          </div>
-        </div>
+    <div className="bento-tile span-2 row-2 hero-bento">
+      <div className="hero-profile-bento">
+        <img src="/profile.jpg" alt="Shahin Sha" className="profile-img" onError={(e) => { e.target.style.display = 'none' }} />
       </div>
-    </section>
+      
+      <div className="mono" style={{ marginBottom: '1rem' }}>Available for 2026 Internships</div>
+      
+      <h1 className="hero-title" style={{ fontSize: '3.5rem', lineHeight: '1.1', marginBottom: '1.5rem' }}>
+        Hi, I'm <br />
+        <span className="gradient-text">Shahinsha</span>
+      </h1>
+      
+      <p style={{ fontSize: '1.1rem', color: 'var(--text-muted)', marginBottom: '2rem' }}>
+        2nd Year CSE @ MEA College. <br/>
+        Building high-performance, full-stack digital experiences with a human-centric approach.
+      </p>
+      
+      <div style={{ marginTop: 'auto', display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
+        <a href="https://github.com/Shahinshac" target="_blank" rel="noreferrer" className="social-icon glass-panel" aria-label="GitHub">
+          <GithubIcon size={20} />
+        </a>
+        <a href="https://www.linkedin.com/in/shahin-sha-chakkingathodi-95946b2b5" target="_blank" rel="noreferrer" className="social-icon glass-panel" aria-label="LinkedIn">
+          <LinkedinIcon size={20} />
+        </a>
+        <a href="mailto:shahinsha.c123@gmail.com" className="btn-aura" style={{ marginLeft: 'auto', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+          Contact <ArrowRight size={18} />
+        </a>
+      </div>
+    </div>
   );
 };
 
-export default Hero;
+export default HeroTile;
