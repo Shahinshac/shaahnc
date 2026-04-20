@@ -26,7 +26,7 @@ const Header = () => {
       <div className="container header-content">
         <a href="#home" className="logo">
           <Code className="logo-icon" />
-          <span className="logo-text gradient-text">Shahin.</span>
+          <span className="logo-text gradient-text">Shahinsha.</span>
         </a>
 
         {/* Desktop Nav */}
