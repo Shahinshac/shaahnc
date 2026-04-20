@@ -1,0 +1,145 @@
+.hero-section {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  padding-top: 5rem;
+}
+
+.hero-glow {
+  position: absolute;
+  filter: blur(100px);
+  z-index: -1;
+  opacity: 0.5;
+}
+
+.shape-1 {
+  top: 10%;
+  left: 0;
+  width: 40vw;
+  height: 40vw;
+  background: radial-gradient(circle, var(--accent-1), transparent);
+  animation: float 10s ease-in-out infinite;
+}
+
+.shape-2 {
+  bottom: 0;
+  right: -10%;
+  width: 30vw;
+  height: 30vw;
+  background: radial-gradient(circle, var(--accent-2), transparent);
+  animation: float 15s ease-in-out infinite reverse;
+}
+
+.hero-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.hero-content {
+  max-width: 800px;
+}
+
+.hero-profile {
+  margin-bottom: 2rem;
+}
+
+.profile-img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--accent-1);
+  box-shadow: 0 0 20px var(--glass-glow);
+  padding: 3px;
+  background-color: var(--bg-color);
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: 9999px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  margin-bottom: 2rem;
+  border-color: rgba(139, 92, 246, 0.3);
+}
+
+.badge-dot {
+  width: 8px;
+  height: 8px;
+  background-color: #10b981;
+  border-radius: 50%;
+  box-shadow: 0 0 10px #10b981;
+  animation: pulse 2s infinite;
+}
+
+.hero-title {
+  font-size: 4.5rem;
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.02em;
+}
+
+.surname {
+  font-size: 3rem;
+  display: block;
+  opacity: 0.9;
+  margin-top: -0.5rem;
+}
+
+.hero-subtitle {
+  font-size: 1.25rem;
+  color: var(--text-muted);
+  margin-bottom: 2.5rem;
+  max-width: 600px;
+}
+
+.hero-cta {
+  display: flex;
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+.hero-socials {
+  display: flex;
+  gap: 1rem;
+}
+
+.social-icon {
+  width: 45px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  color: var(--text-muted);
+}
+
+.social-icon:hover {
+  color: var(--accent-1);
+}
+
+@keyframes float {
+  0% { transform: translate(0, 0); }
+  50% { transform: translate(30px, 30px); }
+  100% { transform: translate(0, 0); }
+}
+
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 3rem;
+  }
+  .surname {
+    font-size: 2rem;
+  }
+  .hero-cta {
+    flex-direction: column;
+  }
+  .btn {
+    justify-content: center;
+  }
+}
