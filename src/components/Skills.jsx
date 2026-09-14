@@ -1,83 +1,100 @@
 import React from 'react';
-import { Terminal, Database, Layout, Settings, Box, Cloud } from 'lucide-react';
+import { 
+  Layout, 
+  Server, 
+  Database, 
+  Terminal, 
+  Cpu, 
+  Compass
+} from 'lucide-react';
 import './Skills.css';
 
-const SkillModule = ({ category }) => (
-  <div className="skill-module cyber-card">
-    <div className="skill-header">
-      <div className="mono skill-id">{category.id}</div>
-      <category.icon size={18} className="skill-icon" />
-    </div>
-    
-    <div className="skill-body">
-      <h3 className="skill-title">{category.title}</h3>
-      <div className="skill-tags">
-        {category.skills.map((skill, idx) => (
-          <div key={idx} className="skill-item">
-            <div className="skill-info">
-              <span className="mono">{skill.name}</span>
-              <span className="mono status-code">OK</span>
-            </div>
-            <div className="skill-bar-container">
-              <div className="skill-bar" style={{ width: `${skill.level}%` }}></div>
-            </div>
-          </div>
-        ))}
-      </div>
-    </div>
-  </div>
-);
+const skillCategories = [
+  {
+    id: "frontend",
+    title: "Frontend",
+    icon: <Layout size={18} />,
+    skills: ["React", "Next.js", "TypeScript", "JavaScript", "Vite", "HTML", "CSS"]
+  },
+  {
+    id: "backend",
+    title: "Backend",
+    icon: <Server size={18} />,
+    skills: ["Node.js", "Express", "NestJS", "Python", "Flask"]
+  },
+  {
+    id: "database",
+    title: "Database",
+    icon: <Database size={18} />,
+    skills: ["PostgreSQL", "Prisma", "Flask-SQLAlchemy"]
+  },
+  {
+    id: "devops",
+    title: "DevOps / Tools",
+    icon: <Terminal size={18} />,
+    skills: ["Git", "GitHub", "Docker", "GitHub Actions", "Linux", "Vercel"]
+  },
+  {
+    id: "additional",
+    title: "Additional",
+    icon: <Cpu size={18} />,
+    skills: ["Java", "C#"]
+  }
+];
 
 const Skills = () => {
-  const data = [
-    {
-      id: "MX_01",
-      title: "Frontend_Engine",
-      icon: Layout,
-      skills: [
-        { name: "REACT.js", level: 90 },
-        { name: "VITE_BUILD", level: 85 },
-        { name: "MODERN_CSS", level: 95 },
-        { name: "JS_ESNext", level: 88 }
-      ]
-    },
-    {
-      id: "MX_02",
-      title: "Backend_Kernel",
-      icon: Settings,
-      skills: [
-        { name: "NODE_RUNTIME", level: 85 },
-        { name: "EXPRESS_API", level: 82 },
-        { name: "REST_PROTO", level: 90 },
-        { name: "AUTHENTICATION", level: 75 }
-      ]
-    },
-    {
-      id: "MX_03",
-      title: "Data_Registry",
-      icon: Database,
-      skills: [
-        { name: "MONGODB", level: 80 },
-        { name: "POSTGRESQL", level: 70 },
-        { name: "REDIS_CACHE", level: 65 }
-      ]
-    },
-    {
-      id: "MX_04",
-      title: "Cloud_Interface",
-      icon: Cloud,
-      skills: [
-        { name: "VERCEL_PROD", level: 95 },
-        { name: "GIT_VCS", level: 90 },
-        { name: "DOCKER_V1", level: 60 }
-      ]
-    }
-  ];
-
   return (
-    <div className="skills-matrix-grid">
-      {data.map((item) => <SkillModule key={item.id} category={item} />)}
-    </div>
+    <section className="section skills-section" id="skills">
+      <div className="container">
+        {/* Section Header */}
+        <div className="section-header">
+          <div className="section-tag">
+            <span className="tag-dot"></span>
+            <span>Capabilities</span>
+          </div>
+          <h2 className="section-title">TECH STACK</h2>
+          <p className="section-subtitle">
+            Core technologies and development tooling applied across my academic,
+            full-stack, and systems engineering projects.
+          </p>
+        </div>
+
+        {/* Categories Grid */}
+        <div className="tech-stack-grid">
+          {skillCategories.map((cat) => (
+            <div key={cat.id} className="tech-category-card card-base">
+              <div className="category-header">
+                <div className="category-icon-box">{cat.icon}</div>
+                <h3 className="category-title">{cat.title}</h3>
+              </div>
+              <div className="tech-items-list">
+                {cat.skills.map((skill, index) => (
+                  <div key={index} className="tech-badge">
+                    <span className="tech-name">{skill}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Small Supporting Section: Currently Learning */}
+        <div className="learning-banner card-base">
+          <div className="learning-icon-col">
+            <div className="learning-pulse-dot"></div>
+            <Compass size={20} className="learning-icon" />
+          </div>
+          
+          <div className="learning-content">
+            <h3 className="learning-label mono">CURRENTLY LEARNING</h3>
+            <div className="learning-domain">Cloud &amp; DevOps</div>
+            <div className="learning-topics mono">
+              Linux • Networking • Docker • CI/CD • AWS
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
   );
 };
 

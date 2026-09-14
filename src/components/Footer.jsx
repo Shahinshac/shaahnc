@@ -1,61 +1,81 @@
 import React from 'react';
-import { Mail, Phone, MapPin, Radio, Wifi } from 'lucide-react';
+import { ArrowUp } from 'lucide-react';
+import { SITE_CONFIG } from '../config/siteConfig';
 import './Footer.css';
 
 const Footer = () => {
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const currentYear = new Date().getFullYear();
+
   return (
-    <footer className="cyber-footer">
-      <div className="container footer-layout">
-        <div className="footer-signal grid-col">
-          <h2 className="glitch gradient-text" data-text="SIG_INITIALIZE" style={{ marginBottom: '1rem' }}>
-            SIG_INITIALIZE
-          </h2>
-          <p className="mono" style={{ opacity: 0.6, marginBottom: '2rem' }}>
-            PENDING_COMMUNICATION_LINK_FOR_COLLABORATION
+    <footer className="site-footer">
+      <div className="container footer-content">
+        <div className="footer-left">
+          <span className="footer-brand">{SITE_CONFIG.name.toUpperCase()}</span>
+          <p className="footer-tagline">
+            {SITE_CONFIG.role}
           </p>
-          
-          <div className="signal-status">
-            <Radio size={16} className="pulse-anim" />
-            <span className="mono">LISTENING_FOR_SIGNALS...</span>
-          </div>
+          <span className="footer-copy mono">
+            &copy; {currentYear} {SITE_CONFIG.name.toUpperCase()}
+          </span>
         </div>
 
-        <div className="footer-contact grid-col">
-          <div className="contact-frame">
-            <div className="contact-item">
-              <Mail className="contact-icon" size={18} />
-              <div className="contact-data">
-                <span className="mono label">MAIL:</span>
-                <a href="mailto:shahinsha.c123@gmail.com" className="value">SHAHINSHA.C123@GMAIL.COM</a>
-              </div>
-            </div>
+        <div className="footer-right">
+          <div className="footer-social-links">
+            <a 
+              href={SITE_CONFIG.social.github} 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="footer-link"
+            >
+              GitHub
+            </a>
+            {SITE_CONFIG.social.linkedin && (
+              <a 
+                href={SITE_CONFIG.social.linkedin} 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="footer-link"
+              >
+                LinkedIn
+              </a>
+            )}
+            <a 
+              href={SITE_CONFIG.social.x} 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="footer-link"
+            >
+              X
+            </a>
+            <a 
+              href={SITE_CONFIG.social.instagram} 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="footer-link"
+            >
+              Instagram
+            </a>
+          </div>
+
+          <div className="footer-nav-links">
+            <a href="#home" className="footer-nav-item">Home</a>
+            <a href="#about" className="footer-nav-item">About</a>
+            <a href="#projects" className="footer-nav-item">Projects</a>
+            <a href="#skills" className="footer-nav-item">Skills</a>
+            <a href="#contact" className="footer-nav-item">Contact</a>
             
-            <div className="contact-item">
-              <Phone className="contact-icon" size={18} />
-              <div className="contact-data">
-                <span className="mono label">CELL:</span>
-                <span className="value">+91 7594012761</span>
-              </div>
-            </div>
-
-            <div className="contact-item">
-              <MapPin className="contact-icon" size={18} />
-              <div className="contact-data">
-                <span className="mono label">LOC:</span>
-                <span className="value">PERINTHALMANNA, IN</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div className="footer-system-bar">
-        <div className="container bar-content">
-          <div className="mono bar-left">© 2026 SHAHINSHA_SYS_V2.0.4</div>
-          <div className="bar-right">
-            <div className="mono encryption-tag">
-              <Wifi size={12} /> SECURE_PROTOCOL_TLS_1.3
-            </div>
+            <button 
+              onClick={scrollToTop} 
+              className="back-to-top-btn"
+              aria-label="Back to top of page"
+            >
+              <span className="mono">Back to top</span>
+              <ArrowUp size={14} />
+            </button>
           </div>
         </div>
       </div>
