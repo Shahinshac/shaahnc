@@ -14,7 +14,7 @@ export const SITE_CONFIG = {
   description: "Shahin Sha Chakkingathodi (Shahinshac) is a Computer Science engineering student and full-stack developer building practical web applications and exploring Cloud & DevOps.",
   
   // Production canonical deployment URL
-  productionUrl: "https://shahinsha-portfolio.vercel.app",
+  productionUrl: "https://shahinshac.vercel.app",
 
   // Verified social profiles & contact coordinates
   social: {
