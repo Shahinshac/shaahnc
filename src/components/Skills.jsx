@@ -5,7 +5,8 @@ import {
   Database, 
   Terminal, 
   Cpu, 
-  Compass
+  Compass,
+  BookOpen
 } from 'lucide-react';
 import './Skills.css';
 
@@ -30,7 +31,7 @@ const skillCategories = [
   },
   {
     id: "devops",
-    title: "DevOps / Tools",
+    title: "DevOps & Tools",
     icon: <Terminal size={18} />,
     skills: ["Git", "GitHub", "Docker", "GitHub Actions", "Linux", "Vercel"]
   },
@@ -40,6 +41,14 @@ const skillCategories = [
     icon: <Cpu size={18} />,
     skills: ["Java", "C#"]
   }
+];
+
+const learningTopics = [
+  "Linux",
+  "Networking",
+  "Docker",
+  "CI/CD",
+  "AWS"
 ];
 
 const Skills = () => {
@@ -54,8 +63,8 @@ const Skills = () => {
           </div>
           <h2 className="section-title">TECH STACK</h2>
           <p className="section-subtitle">
-            Core technologies and development tooling applied across my academic,
-            full-stack, and systems engineering projects.
+            Organized tools and core technologies applied across full-stack applications,
+            academic coursework, and systems projects.
           </p>
         </div>
 
@@ -78,18 +87,35 @@ const Skills = () => {
           ))}
         </div>
 
-        {/* Small Supporting Section: Currently Learning */}
-        <div className="learning-banner card-base">
-          <div className="learning-icon-col">
-            <div className="learning-pulse-dot"></div>
-            <Compass size={20} className="learning-icon" />
+        {/* Section 8: Currently Learning Section */}
+        <div className="learning-section-wrapper card-base">
+          <div className="learning-header-row">
+            <div className="learning-badge-pill">
+              <div className="learning-pulse-dot"></div>
+              <Compass size={15} />
+              <span className="mono">CURRENTLY LEARNING</span>
+            </div>
+            <div className="learning-status-note mono">
+              <BookOpen size={13} /> Active Study &amp; Experimentation
+            </div>
           </div>
-          
-          <div className="learning-content">
-            <h3 className="learning-label mono">CURRENTLY LEARNING</h3>
-            <div className="learning-domain">Cloud &amp; DevOps</div>
-            <div className="learning-topics mono">
-              Linux • Networking • Docker • CI/CD • AWS
+
+          <div className="learning-main-content">
+            <div className="learning-domain-group">
+              <h3 className="learning-domain-title">Cloud &amp; DevOps</h3>
+              <p className="learning-domain-desc">
+                Expanding knowledge into core systems, networking concepts, and container workflows.
+                Focusing on understanding how software runs reliably beyond the local development environment.
+              </p>
+            </div>
+
+            <div className="learning-topics-grid">
+              {learningTopics.map((topic, i) => (
+                <div key={i} className="learning-topic-card">
+                  <span className="topic-dot"></span>
+                  <span className="mono topic-name">{topic}</span>
+                </div>
+              ))}
             </div>
           </div>
         </div>

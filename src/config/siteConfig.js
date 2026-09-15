@@ -8,10 +8,10 @@ export const SITE_CONFIG = {
   name: "Shahin Sha Chakkingathodi",
   alias: "Shahinshac",
   role: "Full-Stack Developer",
-  subRole: "Computer Science Engineering Student",
+  subRole: "B.Tech Computer Science Student",
   
   // Natural search & meta description
-  description: "Shahin Sha Chakkingathodi (Shahinshac) is a Computer Science engineering student and full-stack developer building practical web applications and exploring Cloud & DevOps.",
+  description: "Building practical full-stack applications and exploring Cloud & DevOps.",
   
   // Production canonical deployment URL
   productionUrl: "https://shahinshac.vercel.app",
@@ -20,8 +20,8 @@ export const SITE_CONFIG = {
   social: {
     github: "https://github.com/Shahinshac",
     githubUsername: "Shahinshac",
-    linkedin: "https://www.linkedin.com/in/shahinshac",
-    linkedinHandle: "shahinshac",
+    linkedin: "https://www.linkedin.com/in/shahin-sha-chakkingathodi",
+    linkedinHandle: "shahin-sha-chakkingathodi",
     x: "https://x.com/shaahn_c",
     xHandle: "@shaahn_c",
     instagram: "https://instagram.com/shaahn_c",

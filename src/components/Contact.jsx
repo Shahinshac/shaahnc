@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Mail, MapPin, Copy, Check, ExternalLink, Send } from 'lucide-react';
+import { Mail, Copy, Check, ExternalLink, Send } from 'lucide-react';
 import { GithubIcon, XIcon, InstagramIcon, LinkedinIcon } from './Icons';
 import { SITE_CONFIG } from '../config/siteConfig';
 import './Contact.css';
@@ -21,23 +21,21 @@ const Contact = () => {
         <div className="section-header">
           <div className="section-tag">
             <span className="tag-dot"></span>
-            <span>Reach Out</span>
+            <span>Get in Touch</span>
           </div>
           <h2 className="section-title">CONTACT</h2>
           <p className="section-subtitle">
-            Whether you have an internship opportunity, software development project, 
-            or engineering inquiry, my inbox is open.
+            Direct communication channels for engineering inquiries, software development, and technical collaboration.
           </p>
         </div>
 
         <div className="contact-layout-grid">
-          {/* Main Direct Email Card */}
+          {/* Main Direct Email Card / Final CTA */}
           <div className="direct-email-card card-base">
             <div className="email-card-badge mono">DIRECT CHANNEL</div>
-            <h3 className="email-card-title">Let's build something practical together</h3>
+            <h3 className="email-card-title">LET'S BUILD SOMETHING USEFUL.</h3>
             <p className="email-card-desc">
-              Currently open for software developer internships, full-stack roles,
-              and open-source collaborations. Drop me a message directly.
+              Open to connecting around software development, projects, and learning opportunities.
             </p>
 
             <div className="email-address-box">
@@ -58,12 +56,12 @@ const Contact = () => {
 
             <div className="email-action-row">
               <a href={`mailto:${email}`} className="btn btn-primary">
-                <Send size={16} /> Open Email Client
+                <Send size={16} /> Send Email
               </a>
             </div>
           </div>
 
-          {/* Social & Location Channels */}
+          {/* Social Channels Column */}
           <div className="contact-channels-col">
             {/* GitHub Card */}
             <a 
@@ -71,15 +69,16 @@ const Contact = () => {
               target="_blank" 
               rel="noopener noreferrer" 
               className="channel-card card-base"
+              title="GitHub Profile"
             >
               <div className="channel-icon-box">
-                <GithubIcon size={20} />
+                <GithubIcon size={19} />
               </div>
               <div className="channel-info">
                 <span className="channel-label mono">GITHUB</span>
                 <span className="channel-val">github.com/{SITE_CONFIG.alias}</span>
               </div>
-              <ExternalLink size={16} className="channel-arrow" />
+              <ExternalLink size={15} className="channel-arrow" />
             </a>
 
             {/* LinkedIn Card */}
@@ -89,16 +88,17 @@ const Contact = () => {
                 target="_blank" 
                 rel="noopener noreferrer" 
                 className="channel-card card-base"
+                title="LinkedIn Profile"
                 aria-label="View LinkedIn Profile"
               >
                 <div className="channel-icon-box">
-                  <LinkedinIcon size={20} />
+                  <LinkedinIcon size={19} />
                 </div>
                 <div className="channel-info">
                   <span className="channel-label mono">LINKEDIN</span>
                   <span className="channel-val">View LinkedIn Profile</span>
                 </div>
-                <ExternalLink size={16} className="channel-arrow" />
+                <ExternalLink size={15} className="channel-arrow" />
               </a>
             )}
 
@@ -108,15 +108,16 @@ const Contact = () => {
               target="_blank" 
               rel="noopener noreferrer" 
               className="channel-card card-base"
+              title="X Profile"
             >
               <div className="channel-icon-box">
-                <XIcon size={18} />
+                <XIcon size={16} />
               </div>
               <div className="channel-info">
                 <span className="channel-label mono">X (TWITTER)</span>
                 <span className="channel-val">{SITE_CONFIG.social.xHandle}</span>
               </div>
-              <ExternalLink size={16} className="channel-arrow" />
+              <ExternalLink size={15} className="channel-arrow" />
             </a>
 
             {/* Instagram Card */}
@@ -125,27 +126,17 @@ const Contact = () => {
               target="_blank" 
               rel="noopener noreferrer" 
               className="channel-card card-base"
+              title="Instagram Profile"
             >
               <div className="channel-icon-box">
-                <InstagramIcon size={18} />
+                <InstagramIcon size={17} />
               </div>
               <div className="channel-info">
                 <span className="channel-label mono">INSTAGRAM</span>
                 <span className="channel-val">{SITE_CONFIG.social.instagramHandle}</span>
               </div>
-              <ExternalLink size={16} className="channel-arrow" />
+              <ExternalLink size={15} className="channel-arrow" />
             </a>
-
-            {/* Location Card */}
-            <div className="channel-card card-base location-card">
-              <div className="channel-icon-box location-icon-box">
-                <MapPin size={20} />
-              </div>
-              <div className="channel-info">
-                <span className="channel-label mono">LOCATION</span>
-                <span className="channel-val">{SITE_CONFIG.social.location}</span>
-              </div>
-            </div>
           </div>
         </div>
       </div>

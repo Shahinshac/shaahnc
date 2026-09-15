@@ -174,17 +174,28 @@ main {
 }
 
 @media (max-width: 640px) {
+  .modal-overlay {
+    padding: 0.75rem;
+  }
   .modal-header {
-    padding: 1.25rem 1.25rem 1rem;
+    padding: 1.25rem 1.15rem 0.85rem;
+  }
+  .modal-title {
+    font-size: 1.25rem;
+  }
+  .modal-close-btn {
+    width: 40px;
+    height: 40px;
   }
   .modal-body {
-    padding: 1.25rem;
-    gap: 1.5rem;
+    padding: 1.15rem;
+    gap: 1.25rem;
   }
   .modal-footer-actions {
     flex-direction: column;
   }
   .modal-footer-actions .btn {
     width: 100%;
+    justify-content: center;
   }
 }

@@ -4,9 +4,9 @@ import {
   CheckCircle2, 
   X, 
   Info, 
-  ArrowUpRight,
   Server,
-  Activity
+  Activity,
+  Lock
 } from 'lucide-react';
 import { GithubIcon } from './Icons';
 import './Projects.css';
@@ -14,90 +14,98 @@ import './Projects.css';
 const projectsData = [
   {
     id: "hospital-os",
+    number: "01",
     title: "HospitalOS + PharmacyERP",
-    subtitle: "Enterprise Clinical & Pharmacy Management",
-    description: "Integrated hospital operations platform orchestrating clinical workflows, patient records, and pharmacy inventory management with FEFO stock rotation and dual web/desktop interfaces.",
+    engineeringFocus: "Healthcare workflow + inventory integration",
+    description: "Integrated clinical operations and pharmacy inventory platform featuring patient record tracking, medication dispensing with FEFO stock rotation, and dual web and desktop clients.",
     stack: ["NestJS", "React", "TypeScript", "Prisma", "PostgreSQL", "Docker", "C#"],
     keyFeatures: [
-      "Hospital management workflows & patient records",
-      "Pharmacy management with FEFO stock rotation",
-      "Strict role-based access control (RBAC)",
-      "PostgreSQL database management with Prisma ORM",
-      "C# Windows Forms desktop integration"
+      "Clinical records management & outpatient scheduling",
+      "Pharmacy dispensing with FEFO stock rotation",
+      "Role-based access control for doctors and pharmacists",
+      "PostgreSQL relational modeling with Prisma ORM",
+      "C# Windows desktop module communicating via REST APIs"
     ],
     github: "https://github.com/Shahinshac/HospitalOs",
-    live: null, // Desktop & local microservices architecture
+    live: null,
+    authRequired: false,
     details: {
-      overview: "HospitalOS + PharmacyERP is a dual-tier health informatics system designed to unify hospital clinical records with pharmacy supply-chain mechanics. It eliminates stock expiration waste and administrative bottlenecks in multi-department clinics.",
-      problem: "Traditional clinic systems suffer from disconnected pharmacy stock tracking, leading to expired medications and unauthorized dispensing, alongside slow paper-based outpatient queues.",
-      solution: "Engineered a centralized PostgreSQL database accessed via NestJS REST APIs and Prisma ORM, providing role-based security. Paired with a React web console for doctors and a native C# Windows Forms desktop app for high-throughput pharmacy dispensing.",
-      architecture: "NestJS backend containerized with Docker, PostgreSQL relational engine, React doctor/admin dashboard, and C# client communicating over REST endpoints."
+      overview: "HospitalOS + PharmacyERP unifies clinical records management with pharmacy inventory control to eliminate stock expiration waste and improve administrative coordination.",
+      problem: "Traditional clinic systems struggle with disconnected pharmacy inventory, leading to expired medication dispensation and disorganized record sharing between doctors and dispensaries.",
+      solution: "Engineered a centralized PostgreSQL database accessed through NestJS REST APIs and Prisma ORM. Paired with a React doctor console and a native C# client for rapid pharmacy dispensing.",
+      architecture: "NestJS backend services containerized with Docker, PostgreSQL relational schema, React web interface, and C# client communicating over REST endpoints."
     }
   },
   {
     id: "restaurant-pos",
+    number: "02",
     title: "Restaurant Billing & Real-Time POS",
-    subtitle: "Real-Time Cloud Kitchen & POS Suite",
-    description: "Cloud-connected POS system featuring real-time kitchen order dispatch, table management, live WebSocket updates, and secure payment checkout.",
+    engineeringFocus: "Real-time order synchronization",
+    description: "Multi-station restaurant operations suite featuring dynamic table management, instantaneous kitchen order dispatch via WebSockets, and integrated payment processing.",
     stack: ["Next.js", "Node.js", "Express", "Socket.io", "Prisma", "PostgreSQL", "Razorpay"],
     keyFeatures: [
-      "Dynamic table management & billing workflows",
+      "Dynamic table management & fast billing calculation",
       "Real-time kitchen order dispatch via Socket.io",
-      "WebSocket bi-directional order status updates",
-      "Integrated Razorpay payment processing",
-      "PostgreSQL database with schema-safe Prisma migrations"
+      "Bi-directional WebSocket order updates across stations",
+      "Secure Razorpay checkout and verification workflow",
+      "PostgreSQL schema migrations with Prisma ORM"
     ],
     github: "https://github.com/Shahinshac/restaurant-billing",
     live: "https://restaurant-billing-phi.vercel.app",
+    authRequired: true,
     details: {
-      overview: "A modern food-service operations management solution designed for real-time table turnover, instant kitchen order communication, and touchless transaction reconciliation.",
-      problem: "Restaurant order delays and reconciliation errors occur when waitstaff orders do not reflect instantly on kitchen display screens or when bills fail to sync with live payments.",
-      solution: "Implemented an event-driven architecture using Node.js and Socket.io to push table tickets immediately to the Kitchen Display System (KDS), integrated with Razorpay gateway and Next.js frontend.",
-      architecture: "Next.js frontend deployed on Vercel, Node.js/Express backend on cloud services, Socket.io WebSocket channels, and PostgreSQL via Prisma ORM."
+      overview: "A food-service management system designed to accelerate table turnover, push waitstaff orders instantly to kitchen screens, and streamline customer bill settlement.",
+      problem: "Order discrepancies and delays happen frequently when waitstaff paper slips fail to sync immediately with kitchen prep stations or during peak checkout rush.",
+      solution: "Constructed an event-driven synchronization layer using Node.js and Socket.io to push table tickets immediately to the Kitchen Display System, backed by Next.js and Razorpay.",
+      architecture: "Next.js frontend deployed on Vercel, Node.js/Express backend server, Socket.io bi-directional WebSocket channels, and PostgreSQL via Prisma."
     }
   },
   {
     id: "core-banking",
-    title: "Core Banking System",
-    subtitle: "Transactional Banking & Credit Engine",
-    description: "Robust transactional banking engine facilitating customer onboarding, multi-account ledger operations, fund transfers, and automated loan EMI repayment calculations.",
-    stack: ["React", "TypeScript", "Python", "Flask", "PostgreSQL", "JWT"],
+    number: "03",
+    title: "Core Banking System (CBS)",
+    engineeringFocus: "Role-based banking workflows",
+    description: "Financial management application facilitating account creation, multi-account ledger operations, transactional fund transfers, and automated loan EMI schedule calculations.",
+    stack: ["React", "TypeScript", "Python Flask", "Flask-SQLAlchemy", "PostgreSQL", "JWT"],
     keyFeatures: [
-      "Customer onboarding & KYC account creation",
-      "Transactional deposits, withdrawals & ledger transfers",
-      "End-to-end loan application & EMI schedule generator",
-      "Role-based authorization (Teller, Manager, Admin)",
-      "Strict financial validation & audit-ready database logs"
+      "Customer account creation & multi-account management",
+      "Atomic deposits, withdrawals & ledger fund transfers",
+      "Loan application processing & automated EMI schedule calculations",
+      "Role-based authorization for tellers, managers, and account holders",
+      "Relational integrity and audit-ready transaction logs"
     ],
     github: "https://github.com/Shahinshac/CBS",
     live: "https://cbs-swart-ten.vercel.app",
+    authRequired: false,
     details: {
-      overview: "A core financial management engine simulating institutional retail banking operations, credit assessment workflows, and transactional ledger accounting.",
-      problem: "Banking workflows require strict transactional atomicity, non-repudiation, and auditability where double-spending or unauthorized account operations cannot be tolerated.",
-      solution: "Built a Python Flask API enforcing ACID transaction guarantees in PostgreSQL, authenticated with signed JWT sessions and granular role authorization separating customer accounts from teller operations.",
-      architecture: "React + TypeScript dashboard interface interacting with Python Flask microservice backend backed by PostgreSQL relational schemas."
+      overview: "A core financial management engine simulating retail banking workflows, credit assessment schedules, and transactional ledger accounting.",
+      problem: "Financial operations require strict data consistency, role separation, and error-safe balance updates to prevent balance calculation bugs or unauthorized actions.",
+      solution: "Developed Python Flask REST endpoints with Flask-SQLAlchemy and PostgreSQL, enforcing signed JWT authentication and role-based permissions separating customer accounts from teller operations.",
+      architecture: "React + TypeScript frontend dashboard interacting with a Python Flask service backed by PostgreSQL relational tables."
     }
   },
   {
     id: "code-analyzer",
+    number: "04",
     title: "Code Quality Analyzer",
-    subtitle: "Static Analysis & Metric Tooling",
-    description: "Static code inspection tool leveraging Abstract Syntax Tree (AST) parsing and machine learning algorithms to compute complexity metrics and detect architectural code smells.",
-    stack: ["Python", "Flask", "AST parsing", "scikit-learn", "Docker", "Pytest", "GitHub Actions"],
+    engineeringFocus: "Static analysis + software metrics",
+    description: "Developer inspection tool utilizing Abstract Syntax Tree (AST) parsing and machine learning models to calculate maintainability metrics and detect structural code smells.",
+    stack: ["Python", "Flask", "AST Parsing", "scikit-learn", "Docker", "Pytest", "GitHub Actions"],
     keyFeatures: [
       "Cyclomatic complexity & Halstead volume metrics",
-      "Maintainability Index scoring algorithm",
+      "Maintainability Index calculation engine",
       "Static code smell detection & structural warnings",
       "Automated unit testing with Pytest test suites",
-      "Continuous integration via GitHub Actions workflows"
+      "Automated CI validation with GitHub Actions workflows"
     ],
     github: "https://github.com/Shahinshac/Code-Quality-Analyzer",
     live: "https://code-quality-analyzer-black.vercel.app",
+    authRequired: false,
     details: {
-      overview: "An automated developer utility that inspects Python source files, breaks down code structure via AST nodes, and generates quantifiable maintainability metrics.",
-      problem: "Software debt grows exponentially when teams lack objective metrics to identify high-complexity functions, dead branches, and monolithic anti-patterns prior to code review.",
-      solution: "Developed an AST-driven inspection parser that calculates Cyclomatic Complexity, Halstead effort metrics, and overall Maintainability Index, with Dockerized deployment and GitHub Actions automation.",
-      architecture: "Python Flask analysis microservice utilizing the native `ast` module, scikit-learn pattern classification, Docker container, and Pytest CI verification."
+      overview: "An automated code analysis utility that parses Python source code, inspects syntax trees via AST nodes, and generates quantifiable maintainability metrics.",
+      problem: "Software technical debt accumulates rapidly when teams lack automated metrics to catch high cyclomatic complexity, excessive nesting, or monolithic functions early.",
+      solution: "Engineered an AST-driven inspection parser computing Cyclomatic Complexity, Halstead effort metrics, and overall Maintainability Index, packaged with Docker and GitHub Actions CI.",
+      architecture: "Python Flask analysis backend utilizing the native `ast` parser, scikit-learn pattern classification, Docker container, and Pytest automated validation."
     }
   }
 ];
@@ -135,8 +143,8 @@ const Projects = () => {
           </div>
           <h2 className="section-title">FEATURED PROJECTS</h2>
           <p className="section-subtitle">
-            Engineered full-stack applications with verified source code, operational workflows,
-            and production-ready architectures.
+            Engineered full-stack applications with verified source code, realistic workflows,
+            and structured backend architectures.
           </p>
         </div>
 
@@ -144,14 +152,18 @@ const Projects = () => {
         <div className="projects-grid">
           {projectsData.map((project) => (
             <article key={project.id} className="project-card card-base">
+              {/* Card Top Bar */}
               <div className="card-top-bar">
-                <span className="project-subtitle-badge mono">{project.subtitle}</span>
+                <div className="project-header-meta">
+                  <span className="project-num-badge mono">{project.number}</span>
+                  <span className="project-focus-tag mono">{project.engineeringFocus}</span>
+                </div>
                 <button 
                   className="details-trigger-btn"
                   onClick={() => setSelectedProject(project)}
-                  title="View Project Specifications"
+                  title="View Architecture Specifications"
                 >
-                  <Info size={15} /> Specs
+                  <Info size={14} /> Specs
                 </button>
               </div>
 
@@ -168,9 +180,9 @@ const Projects = () => {
                   ))}
                 </div>
 
-                {/* Key Features List */}
+                {/* Key Technical Highlights */}
                 <div className="features-preview">
-                  <span className="features-heading mono">KEY FEATURES</span>
+                  <span className="features-heading mono">TECHNICAL HIGHLIGHTS</span>
                   <ul className="features-list">
                     {project.keyFeatures.slice(0, 3).map((feature, i) => (
                       <li key={i} className="feature-item">
@@ -188,7 +200,7 @@ const Projects = () => {
                   onClick={() => setSelectedProject(project)}
                   className="btn btn-secondary btn-sm"
                 >
-                  Overview &amp; Architecture
+                  Architecture &amp; Specs
                 </button>
 
                 <div className="action-links">
@@ -197,24 +209,33 @@ const Projects = () => {
                       href={project.github}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="icon-link"
+                      className="project-cta-link"
                       title="View GitHub Repository"
                       aria-label={`${project.title} GitHub Source`}
                     >
-                      <GithubIcon size={18} />
+                      <GithubIcon size={16} />
+                      <span>Code</span>
                     </a>
                   )}
                   {project.live && (
-                    <a
-                      href={project.live}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="icon-link icon-link-live"
-                      title="Open Live Deployment"
-                      aria-label={`${project.title} Live Application`}
-                    >
-                      <ArrowUpRight size={18} />
-                    </a>
+                    <div className="live-link-container">
+                      <a
+                        href={project.live}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="project-cta-link project-cta-live"
+                        title="Open Live Deployment"
+                        aria-label={`${project.title} Live Application`}
+                      >
+                        <ExternalLink size={15} />
+                        <span>Live Demo</span>
+                      </a>
+                      {project.authRequired && (
+                        <span className="auth-pill mono" title="Authentication required to view system data">
+                          <Lock size={10} /> Auth req.
+                        </span>
+                      )}
+                    </div>
                   )}
                 </div>
               </div>
@@ -236,7 +257,15 @@ const Projects = () => {
             {/* Modal Header */}
             <div className="modal-header">
               <div className="modal-header-info">
-                <span className="badge badge-cyan mono">{selectedProject.subtitle}</span>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', flexWrap: 'wrap' }}>
+                  <span className="badge badge-cyan mono">PROJECT {selectedProject.number}</span>
+                  <span className="project-focus-tag mono">{selectedProject.engineeringFocus}</span>
+                  {selectedProject.authRequired && (
+                    <span className="auth-pill mono">
+                      <Lock size={11} /> Authentication required
+                    </span>
+                  )}
+                </div>
                 <h3 id="modal-title" className="modal-title">{selectedProject.title}</h3>
               </div>
               <button 
@@ -274,7 +303,7 @@ const Projects = () => {
 
               {/* Key Features */}
               <div className="modal-section">
-                <h4 className="modal-section-title">KEY FEATURES</h4>
+                <h4 className="modal-section-title">KEY TECHNICAL HIGHLIGHTS</h4>
                 <ul className="modal-feature-list">
                   {selectedProject.keyFeatures.map((feat, i) => (
                     <li key={i} className="modal-feature-item">
@@ -322,6 +351,7 @@ const Projects = () => {
                     className="btn btn-outline"
                   >
                     <ExternalLink size={16} /> Open Live Demo
+                    {selectedProject.authRequired && " (Auth Required)"}
                   </a>
                 )}
               </div>

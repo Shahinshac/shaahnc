@@ -1,6 +1,6 @@
 .tech-stack-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
   gap: 1.5rem;
   margin-bottom: 3.5rem;
 }
@@ -19,6 +19,7 @@
 .tech-category-card:hover {
   border-color: rgba(56, 189, 248, 0.3);
   transform: translateY(-3px);
+  box-shadow: 0 12px 28px -10px rgba(0, 0, 0, 0.5);
 }
 
 .category-header {
@@ -74,76 +75,143 @@
   color: var(--text-primary);
 }
 
-/* Minimal Supporting Section: Currently Learning */
-.learning-banner {
-  background: linear-gradient(135deg, rgba(15, 18, 26, 0.95), rgba(21, 25, 36, 0.8));
-  border: 1px solid rgba(56, 189, 248, 0.2);
-  border-radius: var(--radius-md);
-  padding: 1.5rem 2rem;
-  display: flex;
-  align-items: center;
-  gap: 1.75rem;
-  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
-}
-
-.learning-icon-col {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 44px;
-  height: 44px;
-  border-radius: var(--radius-sm);
-  background: rgba(56, 189, 248, 0.1);
+/* Section 8: Currently Learning Styling */
+.learning-section-wrapper {
+  background: linear-gradient(135deg, rgba(14, 18, 26, 0.95), rgba(20, 25, 38, 0.8));
   border: 1px solid rgba(56, 189, 248, 0.25);
-  flex-shrink: 0;
+  border-radius: var(--radius-md);
+  padding: 2rem 2.25rem;
+  box-shadow: 0 16px 36px -12px rgba(0, 0, 0, 0.6), 0 0 25px -8px rgba(56, 189, 248, 0.1);
+  position: relative;
+  overflow: hidden;
 }
 
-.learning-icon {
+.learning-header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border-subtle);
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.learning-badge-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  background: rgba(56, 189, 248, 0.08);
+  border: 1px solid rgba(56, 189, 248, 0.25);
   color: var(--accent-cyan);
+  padding: 0.3rem 0.75rem;
+  border-radius: 100px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
 }
 
 .learning-pulse-dot {
-  position: absolute;
-  top: -3px;
-  right: -3px;
-  width: 8px;
-  height: 8px;
+  width: 7px;
+  height: 7px;
   border-radius: 50%;
   background: var(--accent-cyan);
   box-shadow: 0 0 8px var(--accent-cyan);
   animation: pulseDot 2s infinite ease-in-out;
 }
 
-.learning-content {
+.learning-status-note {
+  font-size: 0.775rem;
+  color: var(--text-muted);
   display: flex;
-  flex-direction: column;
-  gap: 0.25rem;
+  align-items: center;
+  gap: 0.4rem;
 }
 
-.learning-label {
-  font-size: 0.7rem;
-  letter-spacing: 0.12em;
-  color: var(--accent-cyan);
-  font-weight: 600;
+.learning-main-content {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  align-items: center;
+  gap: 2.5rem;
 }
 
-.learning-domain {
-  font-size: 1.15rem;
+.learning-domain-title {
+  font-size: 1.35rem;
   font-weight: 700;
   color: #ffffff;
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.01em;
 }
 
-.learning-topics {
-  font-size: 0.85rem;
+.learning-domain-desc {
+  font-size: 0.95rem;
   color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.learning-topics-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.learning-topic-card {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 0.55rem 1rem;
+  border-radius: var(--radius-sm);
+  transition: all var(--transition-fast);
+}
+
+.learning-topic-card:hover {
+  background: rgba(56, 189, 248, 0.08);
+  border-color: rgba(56, 189, 248, 0.3);
+  transform: translateY(-2px);
+}
+
+.topic-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent-cyan);
+}
+
+.topic-name {
+  font-size: 0.85rem;
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+@media (max-width: 860px) {
+  .learning-main-content {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
 }
 
 @media (max-width: 640px) {
-  .learning-banner {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 1rem;
-    padding: 1.25rem;
+  .tech-category-card {
+    padding: 1.35rem;
+  }
+  .learning-section-wrapper {
+    padding: 1.35rem 1.15rem;
+  }
+  .learning-domain-title {
+    font-size: 1.2rem;
+  }
+  .learning-domain-desc {
+    font-size: 0.9rem;
+  }
+  .learning-topics-grid {
+    gap: 0.5rem;
+  }
+  .learning-topic-card {
+    padding: 0.45rem 0.75rem;
+  }
+  .topic-name {
+    font-size: 0.8rem;
   }
 }

@@ -130,7 +130,7 @@ const GithubActivity = () => {
               rel="noopener noreferrer"
               className="btn btn-secondary gh-visit-btn"
             >
-              <GithubIcon size={16} /> View Profile on GitHub <ArrowUpRight size={14} />
+              <GithubIcon size={16} /> View GitHub Profile <ArrowUpRight size={14} />
             </a>
           </div>
 

@@ -65,6 +65,7 @@ const Footer = () => {
             <a href="#home" className="footer-nav-item">Home</a>
             <a href="#about" className="footer-nav-item">About</a>
             <a href="#projects" className="footer-nav-item">Projects</a>
+            <a href="#approach" className="footer-nav-item">Approach</a>
             <a href="#skills" className="footer-nav-item">Skills</a>
             <a href="#contact" className="footer-nav-item">Contact</a>
             

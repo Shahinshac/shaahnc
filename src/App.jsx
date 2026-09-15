@@ -3,6 +3,7 @@ import Header from './components/Header';
 import Hero from './components/Hero';
 import About from './components/About';
 import Projects from './components/Projects';
+import EngineeringApproach from './components/EngineeringApproach';
 import Skills from './components/Skills';
 import GithubActivity from './components/GithubActivity';
 import Contact from './components/Contact';
@@ -24,6 +25,7 @@ function App() {
         <Hero />
         <About />
         <Projects />
+        <EngineeringApproach />
         <Skills />
         <GithubActivity />
         <Contact />

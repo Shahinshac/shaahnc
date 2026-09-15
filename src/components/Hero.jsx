@@ -1,5 +1,5 @@
 import React from 'react';
-import { Mail, FolderGit2, MapPin, Terminal } from 'lucide-react';
+import { FolderGit2, MapPin, MessageSquare } from 'lucide-react';
 import { GithubIcon, LinkedinIcon, XIcon, InstagramIcon } from './Icons';
 import { SITE_CONFIG } from '../config/siteConfig';
 import './Hero.css';
@@ -10,11 +10,12 @@ const Hero = () => {
       <div className="container hero-container">
         {/* Left Column: Hero Content */}
         <div className="hero-content">
-          <div className="hero-badge">
-            <span className="hero-badge-icon">
-              <Terminal size={14} />
-            </span>
-            <span className="mono">Computer Science Engineering Student</span>
+          {/* Status Indicator: Currently Learning */}
+          <div className="hero-learning-status" aria-label="Learning status">
+            <span className="status-indicator-dot"></span>
+            <span className="mono status-label">CURRENTLY LEARNING</span>
+            <span className="status-separator">•</span>
+            <span className="mono status-topic">Cloud &amp; DevOps</span>
           </div>
 
           <h1 className="hero-name">
@@ -22,25 +23,41 @@ const Hero = () => {
             <span className="hero-surname">CHAKKINGATHODI</span>
           </h1>
 
-          <div className="hero-identity-row">
-            <span className="hero-alias-badge mono">github.com/{SITE_CONFIG.alias}</span>
-            <span className="hero-divider">•</span>
-            <span className="hero-role">{SITE_CONFIG.role.toUpperCase()}</span>
+          <div className="hero-roles-container">
+            <span className="hero-primary-role">Full-Stack Developer</span>
+            <span className="hero-role-bullet">•</span>
+            <span className="hero-secondary-role">B.Tech Computer Science Student</span>
           </div>
 
           <p className="hero-description">
-            {SITE_CONFIG.description}
+            Building practical full-stack applications and exploring Cloud &amp; DevOps.
           </p>
 
           <div className="hero-actions">
+            {/* Primary CTA */}
             <a href="#projects" className="btn btn-primary">
-              <FolderGit2 size={16} /> VIEW PROJECTS
-            </a>
-            <a href="#contact" className="btn btn-secondary">
-              <Mail size={16} /> CONTACT ME
+              <FolderGit2 size={16} /> View Projects
             </a>
 
-            {/* Social Profile Links */}
+            {/* Secondary CTA */}
+            <a 
+              href={SITE_CONFIG.social.github} 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="btn btn-secondary"
+            >
+              <GithubIcon size={16} /> GitHub
+            </a>
+
+            {/* Subtle Contact / Let's Connect Action */}
+            <a href="#contact" className="btn btn-ghost-connect">
+              <MessageSquare size={15} /> Let's Connect
+            </a>
+          </div>
+
+          {/* Social Icons Strip */}
+          <div className="hero-social-strip">
+            <span className="social-strip-label mono">PROFILES</span>
             <div className="hero-social-links">
               <a
                 href={SITE_CONFIG.social.github}
@@ -48,9 +65,9 @@ const Hero = () => {
                 rel="noopener noreferrer"
                 className="hero-social-icon"
                 aria-label="GitHub Profile"
-                title="GitHub Profile"
+                title="GitHub"
               >
-                <GithubIcon size={17} />
+                <GithubIcon size={16} />
               </a>
               {SITE_CONFIG.social.linkedin && (
                 <a
@@ -59,9 +76,9 @@ const Hero = () => {
                   rel="noopener noreferrer"
                   className="hero-social-icon hero-social-linkedin"
                   aria-label="LinkedIn Profile"
-                  title="LinkedIn Profile"
+                  title="LinkedIn"
                 >
-                  <LinkedinIcon size={17} />
+                  <LinkedinIcon size={16} />
                 </a>
               )}
               <a
@@ -69,10 +86,10 @@ const Hero = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hero-social-icon"
-                aria-label="X Profile"
-                title="X Profile"
+                aria-label="X (Twitter) Profile"
+                title="X"
               >
-                <XIcon size={15} />
+                <XIcon size={14} />
               </a>
               <a
                 href={SITE_CONFIG.social.instagram}
@@ -80,13 +97,14 @@ const Hero = () => {
                 rel="noopener noreferrer"
                 className="hero-social-icon"
                 aria-label="Instagram Profile"
-                title="Instagram Profile"
+                title="Instagram"
               >
-                <InstagramIcon size={16} />
+                <InstagramIcon size={15} />
               </a>
             </div>
           </div>
 
+          {/* Location & Quick Stack Meta */}
           <div className="hero-footer-meta">
             <div className="meta-item">
               <MapPin size={14} className="meta-icon" />
